@@ -3,9 +3,10 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>xyz service | Premium Appliance Repair</title>
+    <title>PrecisionFix | Premium Appliance Repair</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
+        /* CSS Reset & Base Styles */
         * {
             margin: 0;
             padding: 0;
@@ -13,41 +14,30 @@
         }
 
         :root {
-            --color-primary: #0f172a;
-            --color-secondary: #0e7490;
-            --color-accent: #06b6d4;
-            --color-light: #f8fafc;
-            --color-gray: #94a3b8;
-            --gradient-main: linear-gradient(135deg, var(--color-primary) 0%, var(--color-secondary) 100%);
-            --gradient-accent: linear-gradient(135deg, var(--color-accent) 0%, var(--color-secondary) 80%);
-            --shadow: 0 10px 25px rgba(6, 182, 212, 0.1);
-            --shadow-hover: 0 20px 40px rgba(6, 182, 212, 0.2);
-            --border-radius: 12px;
-            --transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.1);
-        }
-
-        html {
-            scroll-behavior: smooth;
+            --primary-blue: #2563eb;
+            --secondary-blue: #3b82f6;
+            --dark-gray: #1f2937;
+            --light-gray: #f3f4f6;
+            --medium-gray: #9ca3af;
+            --text-dark: #111827;
+            --text-light: #6b7280;
+            --white: #ffffff;
+            --shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+            --shadow-sm: 0 4px 6px -1px rgba(0, 0, 0, 0.05);
+            --radius: 12px;
+            --transition: all 0.3s ease;
         }
 
         body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            line-height: 1.7;
-            color: #333;
-            background-color: var(--color-light);
+            font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
+            line-height: 1.6;
+            color: var(--text-dark);
+            background-color: var(--white);
             overflow-x: hidden;
         }
 
-        h1, h2, h3, h4 {
-            font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
-            font-weight: 700;
-            line-height: 1.2;
-            margin-bottom: 1rem;
-            color: var(--color-primary);
-        }
-
         .container {
-            width: 90%;
+            width: 100%;
             max-width: 1200px;
             margin: 0 auto;
             padding: 0 20px;
@@ -55,93 +45,91 @@
 
         section {
             padding: 80px 0;
-            position: relative;
         }
 
-        .section-title {
-            text-align: center;
-            margin-bottom: 60px;
-            position: relative;
+        h1, h2, h3, h4 {
+            font-weight: 700;
+            line-height: 1.2;
+            margin-bottom: 1rem;
         }
 
-        .section-title h2 {
+        h1 {
             font-size: 2.8rem;
-            background: var(--gradient-accent);
-            -webkit-background-clip: text;
-            background-clip: text;
-            color: transparent;
-            display: inline-block;
         }
 
-        .section-title p {
-            color: var(--color-gray);
-            font-size: 1.1rem;
-            max-width: 600px;
-            margin: 0 auto;
+        h2 {
+            font-size: 2.2rem;
+            text-align: center;
+            margin-bottom: 3rem;
+            color: var(--dark-gray);
+            position: relative;
+        }
+
+        h2:after {
+            content: '';
+            position: absolute;
+            bottom: -15px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 70px;
+            height: 4px;
+            background: var(--primary-blue);
+            border-radius: 2px;
+        }
+
+        h3 {
+            font-size: 1.5rem;
+            color: var(--dark-gray);
+        }
+
+        p {
+            margin-bottom: 1rem;
+            color: var(--text-light);
         }
 
         .btn {
             display: inline-block;
-            padding: 16px 36px;
+            background-color: var(--primary-blue);
+            color: var(--white);
+            padding: 14px 32px;
             border-radius: 50px;
             font-weight: 600;
-            font-size: 1rem;
             text-decoration: none;
-            cursor: pointer;
             border: none;
+            cursor: pointer;
             transition: var(--transition);
-            text-align: center;
-            letter-spacing: 0.5px;
-            position: relative;
-            overflow: hidden;
-            z-index: 1;
+            font-size: 1rem;
         }
 
-        .btn-primary {
-            background: var(--gradient-accent);
-            color: white;
+        .btn:hover {
+            background-color: var(--secondary-blue);
+            transform: translateY(-3px);
             box-shadow: var(--shadow);
         }
 
-        .btn-primary:hover {
-            transform: translateY(-5px);
-            box-shadow: var(--shadow-hover);
+        .btn-secondary {
+            background-color: transparent;
+            border: 2px solid var(--primary-blue);
+            color: var(--primary-blue);
         }
 
-        .btn-primary::after {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: -100%;
-            width: 100%;
-            height: 100%;
-            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent);
-            transition: left 0.7s;
-            z-index: -1;
+        .btn-secondary:hover {
+            background-color: var(--primary-blue);
+            color: var(--white);
         }
 
-        .btn-primary:hover::after {
-            left: 100%;
-        }
-
+        /* Header & Navigation */
         header {
             position: fixed;
             top: 0;
-            left: 0;
             width: 100%;
+            background-color: var(--white);
+            box-shadow: var(--shadow-sm);
             z-index: 1000;
-            background-color: rgba(15, 23, 42, 0.95);
-            backdrop-filter: blur(10px);
             padding: 18px 0;
-            transition: var(--transition);
-            box-shadow: 0 5px 20px rgba(0,0,0,0.05);
         }
 
-        header.scrolled {
-            padding: 12px 0;
-        }
-
-        .navbar {
+        .header-container {
             display: flex;
             justify-content: space-between;
             align-items: center;
@@ -149,257 +137,389 @@
 
         .logo {
             font-size: 1.8rem;
-            font-weight: 700;
-            color: white;
+            font-weight: 800;
+            color: var(--primary-blue);
             text-decoration: none;
             display: flex;
             align-items: center;
+            gap: 10px;
         }
 
         .logo i {
-            color: var(--color-accent);
-            margin-right: 10px;
-            font-size: 2rem;
+            color: var(--primary-blue);
         }
 
-        .nav-links {
+        nav ul {
             display: flex;
             list-style: none;
-            gap: 40px;
+            gap: 30px;
         }
 
-        .nav-links a {
-            color: white;
+        nav a {
             text-decoration: none;
-            font-weight: 500;
+            color: var(--dark-gray);
+            font-weight: 600;
             font-size: 1rem;
             transition: var(--transition);
             position: relative;
         }
 
-        .nav-links a::after {
+        nav a:hover {
+            color: var(--primary-blue);
+        }
+
+        nav a:after {
             content: '';
             position: absolute;
             bottom: -5px;
             left: 0;
             width: 0;
             height: 2px;
-            background: var(--color-accent);
-            transition: width 0.3s ease;
+            background-color: var(--primary-blue);
+            transition: var(--transition);
         }
 
-        .nav-links a:hover {
-            color: var(--color-accent);
-        }
-
-        .nav-links a:hover::after {
+        nav a:hover:after {
             width: 100%;
         }
 
-        .mobile-toggle {
+        .mobile-menu-btn {
             display: none;
-            color: white;
             font-size: 1.5rem;
             cursor: pointer;
+            color: var(--dark-gray);
         }
 
+        /* Hero Section */
         .hero {
-            padding-top: 160px;
-            padding-bottom: 100px;
-            background: var(--gradient-main);
-            color: white;
-            border-radius: 0 0 40px 40px;
-            position: relative;
+            background: linear-gradient(135deg, rgba(37, 99, 235, 0.08) 0%, rgba(255, 255, 255, 1) 100%);
+            padding: 160px 0 100px;
             overflow: hidden;
-        }
-
-        .hero::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 100" preserveAspectRatio="none"><path d="M0,0V100H1000V0C750,70 500,100 250,90Z" fill="%2306b6d4" opacity="0.05"/></svg>');
-            background-size: cover;
         }
 
         .hero-content {
             display: grid;
             grid-template-columns: 1fr 1fr;
-            gap: 60px;
+            gap: 50px;
             align-items: center;
-            position: relative;
-            z-index: 2;
         }
 
         .hero-text h1 {
-            font-size: 3.5rem;
-            color: white;
             margin-bottom: 20px;
-            line-height: 1.1;
+            color: var(--dark-gray);
         }
 
         .hero-text p {
             font-size: 1.2rem;
-            margin-bottom: 40px;
-            color: rgba(255,255,255,0.9);
+            margin-bottom: 30px;
+            color: var(--text-light);
         }
 
-        .hero-visual {
-            perspective: 1000px;
+        .hero-buttons {
             display: flex;
-            justify-content: center;
+            gap: 15px;
+            margin-top: 30px;
         }
 
-        .appliance-3d {
-            width: 300px;
-            height: 300px;
+        .hero-image {
             position: relative;
-            transform-style: preserve-3d;
-            animation: float 6s ease-in-out infinite;
+        }
+
+        .hero-image img {
+            width: 100%;
+            border-radius: var(--radius);
+            box-shadow: var(--shadow);
+        }
+
+        .floating-badge {
+            position: absolute;
+            bottom: -20px;
+            right: -20px;
+            background-color: var(--primary-blue);
+            color: var(--white);
+            padding: 20px;
+            border-radius: var(--radius);
+            text-align: center;
+            box-shadow: var(--shadow);
+            animation: float 3s ease-in-out infinite;
+        }
+
+        .floating-badge i {
+            font-size: 2rem;
+            margin-bottom: 10px;
+            display: block;
         }
 
         @keyframes float {
-            0%, 100% { transform: translateY(0) rotateY(0deg); }
-            50% { transform: translateY(-20px) rotateY(10deg); }
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-15px); }
         }
 
-        .appliance-3d div {
-            position: absolute;
-            width: 100%;
-            height: 100%;
-            background: rgba(255,255,255,0.05);
-            border: 2px solid rgba(6, 182, 212, 0.3);
-            border-radius: 20px;
+        /* Auto-sliding text banner */
+        .sliding-banner {
+            background-color: var(--dark-gray);
+            color: var(--white);
+            padding: 15px 0;
+            overflow: hidden;
+            position: relative;
+            margin-bottom: 30px;
+        }
+
+        .banner-track {
+            display: flex;
+            width: max-content;
+            animation: slide 20s linear infinite;
+        }
+
+        .banner-item {
             display: flex;
             align-items: center;
-            justify-content: center;
-            font-size: 5rem;
-            color: var(--color-accent);
-            backface-visibility: hidden;
+            margin-right: 60px;
+            white-space: nowrap;
         }
 
-        .front { transform: translateZ(50px); }
-        .back { transform: translateZ(-50px) rotateY(180deg); }
-        .right { transform: rotateY(90deg) translateZ(150px); width: 100px; }
-        .left { transform: rotateY(-90deg) translateZ(150px); width: 100px; }
-        .top { transform: rotateX(90deg) translateZ(150px); height: 100px; }
-        .bottom { transform: rotateX(-90deg) translateZ(150px); height: 100px; }
+        .banner-item i {
+            color: var(--primary-blue);
+            margin-right: 15px;
+            font-size: 1.2rem;
+        }
+
+        @keyframes slide {
+            0% { transform: translateX(0); }
+            100% { transform: translateX(-50%); }
+        }
+
+        /* Services Section */
+        .services {
+            background-color: var(--light-gray);
+        }
 
         .services-container {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 40px;
+            position: relative;
+            overflow: hidden;
+            padding: 20px 0;
+        }
+
+        .carousel-track {
+            display: flex;
+            transition: transform 0.5s ease;
+            gap: 30px;
         }
 
         .service-card {
-            background: white;
-            border-radius: var(--border-radius);
+            flex: 0 0 calc(33.333% - 20px);
+            background-color: var(--white);
+            border-radius: var(--radius);
             padding: 40px 30px;
-            box-shadow: var(--shadow);
+            text-align: center;
+            box-shadow: var(--shadow-sm);
             transition: var(--transition);
-            transform-style: preserve-3d;
-            perspective: 1000px;
-            position: relative;
-            height: 380px;
+            min-height: 380px;
             display: flex;
             flex-direction: column;
-            align-items: center;
-            text-align: center;
-            cursor: pointer;
+            justify-content: space-between;
         }
 
         .service-card:hover {
-            transform: rotateY(15deg) translateY(-15px);
-            box-shadow: var(--shadow-hover);
+            transform: translateY(-10px);
+            box-shadow: var(--shadow);
         }
 
         .service-icon {
-            width: 90px;
-            height: 90px;
-            background: var(--gradient-accent);
+            font-size: 3.5rem;
+            color: var(--primary-blue);
+            margin-bottom: 20px;
+        }
+
+        .service-card h3 {
+            margin-bottom: 15px;
+        }
+
+        .carousel-nav {
+            display: flex;
+            justify-content: center;
+            gap: 10px;
+            margin-top: 40px;
+        }
+
+        .carousel-dot {
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+            background-color: var(--medium-gray);
+            cursor: pointer;
+            transition: var(--transition);
+        }
+
+        .carousel-dot.active {
+            background-color: var(--primary-blue);
+            transform: scale(1.2);
+        }
+
+        /* Why Choose Us Section */
+        .features {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+            margin-top: 40px;
+        }
+
+        .feature {
+            text-align: center;
+            padding: 30px 20px;
+            border-radius: var(--radius);
+            transition: var(--transition);
+            background-color: var(--white);
+            box-shadow: var(--shadow-sm);
+        }
+
+        .feature:hover {
+            transform: translateY(-5px);
+            box-shadow: var(--shadow);
+        }
+
+        .feature i {
+            font-size: 2.5rem;
+            color: var(--primary-blue);
+            margin-bottom: 20px;
+        }
+
+        .feature h3 {
+            margin-bottom: 15px;
+        }
+
+        /* How It Works Section */
+        .steps-container {
+            display: flex;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            gap: 30px;
+            margin-top: 40px;
+            position: relative;
+        }
+
+        .step {
+            flex: 1;
+            min-width: 250px;
+            text-align: center;
+            padding: 30px 20px;
+            position: relative;
+            z-index: 1;
+        }
+
+        .step-number {
+            width: 60px;
+            height: 60px;
+            background-color: var(--primary-blue);
+            color: var(--white);
             border-radius: 50%;
             display: flex;
             align-items: center;
             justify-content: center;
-            margin-bottom: 25px;
-            font-size: 2.5rem;
-            color: white;
-            transition: var(--transition);
-            transform: translateZ(30px);
-        }
-
-        .service-card:hover .service-icon {
-            transform: translateZ(50px) scale(1.1);
-        }
-
-        .service-card h3 {
-            font-size: 1.8rem;
-            margin-bottom: 15px;
-            transition: var(--transition);
-            transform: translateZ(20px);
-        }
-
-        .service-card p {
-            color: var(--color-gray);
-            margin-bottom: 20px;
-            transform: translateZ(10px);
-        }
-
-        .service-price {
             font-size: 1.8rem;
             font-weight: 700;
-            color: var(--color-primary);
-            margin-top: auto;
-            transform: translateZ(15px);
+            margin: 0 auto 25px;
+            position: relative;
+            z-index: 2;
         }
 
-        .why-us {
-            background-color: #f1f5f9;
-            border-radius: 40px;
-        }
-
-        .features-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 40px;
-        }
-
-        .feature {
-            background: white;
-            padding: 40px 30px;
-            border-radius: var(--border-radius);
-            text-align: center;
-            box-shadow: var(--shadow);
-            transition: var(--transition);
-            transform: translateY(0);
-        }
-
-        .feature:hover {
-            transform: translateY(-15px);
-            box-shadow: var(--shadow-hover);
-        }
-
-        .feature i {
-            font-size: 3rem;
-            color: var(--color-accent);
-            margin-bottom: 25px;
-            display: block;
-        }
-
-        .feature h3 {
-            font-size: 1.5rem;
+        .step h3 {
             margin-bottom: 15px;
         }
 
-        .booking-form-container {
-            background: white;
-            border-radius: var(--border-radius);
-            padding: 50px;
-            box-shadow: var(--shadow);
+        .steps-container:before {
+            content: '';
+            position: absolute;
+            top: 30px;
+            left: 15%;
+            width: 70%;
+            height: 3px;
+            background-color: var(--light-gray);
+            z-index: 0;
+        }
+
+        /* Testimonials Section */
+        .testimonials {
+            background-color: var(--light-gray);
+        }
+
+        .testimonials-container {
+            position: relative;
+            overflow: hidden;
+            padding: 20px 0;
             max-width: 800px;
             margin: 0 auto;
+        }
+
+        .testimonial-track {
+            display: flex;
+            transition: transform 0.5s ease;
+        }
+
+        .testimonial {
+            flex: 0 0 100%;
+            background-color: var(--white);
+            border-radius: var(--radius);
+            padding: 40px;
+            text-align: center;
+            box-shadow: var(--shadow-sm);
+        }
+
+        .testimonial-content {
+            font-size: 1.1rem;
+            font-style: italic;
+            margin-bottom: 25px;
+            color: var(--text-dark);
+            position: relative;
+        }
+
+        .testimonial-content:before {
+            content: '"';
+            font-size: 4rem;
+            color: var(--primary-blue);
+            opacity: 0.2;
+            position: absolute;
+            top: -20px;
+            left: -10px;
+        }
+
+        .client-info {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 15px;
+        }
+
+        .client-avatar {
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            background-color: var(--light-gray);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            color: var(--primary-blue);
+            font-weight: 700;
+        }
+
+        .client-name h4 {
+            margin-bottom: 5px;
+        }
+
+        .client-name p {
+            color: var(--medium-gray);
+            margin-bottom: 0;
+        }
+
+        /* Booking/Contact Form */
+        .form-container {
+            max-width: 700px;
+            margin: 0 auto;
+            background-color: var(--white);
+            padding: 50px;
+            border-radius: var(--radius);
+            box-shadow: var(--shadow);
         }
 
         .form-group {
@@ -410,88 +530,95 @@
             display: block;
             margin-bottom: 8px;
             font-weight: 600;
-            color: var(--color-primary);
+            color: var(--dark-gray);
         }
 
         .form-control {
             width: 100%;
-            padding: 16px 20px;
-            border: 2px solid #e2e8f0;
-            border-radius: 10px;
+            padding: 15px;
+            border: 1px solid #d1d5db;
+            border-radius: 8px;
             font-size: 1rem;
             transition: var(--transition);
         }
 
         .form-control:focus {
             outline: none;
-            border-color: var(--color-accent);
-            box-shadow: 0 0 0 3px rgba(6, 182, 212, 0.2);
+            border-color: var(--primary-blue);
+            box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.1);
         }
 
         .form-row {
             display: grid;
             grid-template-columns: 1fr 1fr;
-            gap: 25px;
+            gap: 20px;
         }
 
-        .error-message {
-            color: #ef4444;
-            font-size: 0.9rem;
-            margin-top: 5px;
-            display: none;
+        textarea.form-control {
+            min-height: 150px;
+            resize: vertical;
         }
 
-        .success-message {
-            background: linear-gradient(135deg, #10b981, #34d399);
-            color: white;
-            padding: 25px;
-            border-radius: var(--border-radius);
+        .form-message {
+            padding: 15px;
+            border-radius: 8px;
+            margin-top: 20px;
             text-align: center;
-            margin-top: 30px;
             display: none;
-            animation: fadeIn 0.5s ease;
         }
 
-        @keyframes fadeIn {
-            from { opacity: 0; transform: translateY(20px); }
-            to { opacity: 1; transform: translateY(0); }
+        .success {
+            background-color: #d1fae5;
+            color: #065f46;
+            border: 1px solid #a7f3d0;
         }
 
-        .contact-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 40px;
+        .error {
+            background-color: #fee2e2;
+            color: #991b1b;
+            border: 1px solid #fecaca;
         }
 
-        .contact-info {
-            background: var(--gradient-main);
-            color: white;
-            padding: 50px 40px;
-            border-radius: var(--border-radius);
-        }
-
-        .contact-info h3 {
-            color: white;
-            margin-bottom: 30px;
-        }
-
-        .contact-item {
+        /* Sticky Call Button */
+        .call-button {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            background-color: #10b981;
+            color: var(--white);
+            width: 70px;
+            height: 70px;
+            border-radius: 50%;
             display: flex;
-            align-items: flex-start;
-            margin-bottom: 30px;
+            align-items: center;
+            justify-content: center;
+            text-decoration: none;
+            box-shadow: var(--shadow);
+            z-index: 999;
+            transition: var(--transition);
+            animation: pulse 2s infinite;
         }
 
-        .contact-item i {
-            font-size: 1.5rem;
-            color: var(--color-accent);
-            margin-right: 20px;
-            margin-top: 5px;
+        .call-button:hover {
+            background-color: #059669;
+            transform: scale(1.1);
         }
 
+        .call-button i {
+            font-size: 1.8rem;
+        }
+
+        @keyframes pulse {
+            0% { box-shadow: 0 0 0 0 rgba(16, 185, 129, 0.7); }
+            70% { box-shadow: 0 0 0 15px rgba(16, 185, 129, 0); }
+            100% { box-shadow: 0 0 0 0 rgba(16, 185, 129, 0); }
+        }
+
+        /* Footer */
         footer {
-            background: var(--color-primary);
-            color: white;
-            padding: 60px 0 30px;
+            background-color: var(--dark-gray);
+            color: var(--white);
+            padding: 70px 0 30px;
         }
 
         .footer-content {
@@ -502,15 +629,33 @@
         }
 
         .footer-logo {
-            font-size: 2rem;
+            font-size: 1.8rem;
+            font-weight: 800;
+            color: var(--white);
             margin-bottom: 20px;
-            color: white;
+            display: inline-block;
         }
 
-        .footer-links h4 {
-            color: white;
+        .footer-about p {
+            color: #d1d5db;
+            margin-bottom: 20px;
+        }
+
+        .footer-links h4, .footer-contact h4 {
+            color: var(--white);
             margin-bottom: 25px;
-            font-size: 1.3rem;
+            position: relative;
+            padding-bottom: 10px;
+        }
+
+        .footer-links h4:after, .footer-contact h4:after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 40px;
+            height: 3px;
+            background-color: var(--primary-blue);
         }
 
         .footer-links ul {
@@ -522,160 +667,255 @@
         }
 
         .footer-links a {
-            color: var(--color-gray);
+            color: #d1d5db;
             text-decoration: none;
             transition: var(--transition);
         }
 
         .footer-links a:hover {
-            color: var(--color-accent);
+            color: var(--primary-blue);
             padding-left: 5px;
         }
 
-        .social-icons {
+        .contact-info {
+            list-style: none;
+        }
+
+        .contact-info li {
             display: flex;
-            gap: 20px;
+            align-items: center;
+            margin-bottom: 15px;
+            color: #d1d5db;
+        }
+
+        .contact-info i {
+            color: var(--primary-blue);
+            margin-right: 15px;
+            font-size: 1.2rem;
+            width: 20px;
+        }
+
+        .social-links {
+            display: flex;
+            gap: 15px;
             margin-top: 20px;
         }
 
-        .social-icons a {
-            display: inline-flex;
+        .social-links a {
+            display: flex;
             align-items: center;
             justify-content: center;
-            width: 45px;
-            height: 45px;
-            background: rgba(255,255,255,0.05);
+            width: 40px;
+            height: 40px;
+            background-color: rgba(255, 255, 255, 0.1);
             border-radius: 50%;
-            color: white;
-            font-size: 1.2rem;
+            color: var(--white);
+            text-decoration: none;
             transition: var(--transition);
         }
 
-        .social-icons a:hover {
-            background: var(--color-accent);
-            transform: translateY(-5px);
+        .social-links a:hover {
+            background-color: var(--primary-blue);
+            transform: translateY(-3px);
         }
 
-        .copyright {
+        .footer-bottom {
             text-align: center;
             padding-top: 30px;
-            border-top: 1px solid rgba(255,255,255,0.1);
-            color: var(--color-gray);
+            border-top: 1px solid #374151;
+            color: #9ca3af;
             font-size: 0.9rem;
         }
 
+        /* Animations */
+        .fade-in {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: opacity 0.6s ease, transform 0.6s ease;
+        }
+
+        .fade-in.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* Responsive Design */
         @media (max-width: 992px) {
+            h1 { font-size: 2.4rem; }
+            h2 { font-size: 2rem; }
+            
             .hero-content {
                 grid-template-columns: 1fr;
                 text-align: center;
             }
             
-            .hero-text h1 {
-                font-size: 2.8rem;
+            .hero-buttons {
+                justify-content: center;
             }
             
-            .section-title h2 {
-                font-size: 2.4rem;
+            .service-card {
+                flex: 0 0 calc(50% - 15px);
+            }
+            
+            .steps-container:before {
+                display: none;
             }
             
             .form-row {
                 grid-template-columns: 1fr;
-                gap: 0;
             }
         }
 
         @media (max-width: 768px) {
-            .nav-links {
-                position: fixed;
-                top: 70px;
-                right: -100%;
-                flex-direction: column;
-                background: var(--gradient-main);
-                width: 280px;
-                height: calc(100vh - 70px);
-                padding: 40px;
-                transition: var(--transition);
-                box-shadow: -10px 0 30px rgba(0,0,0,0.1);
-                border-radius: 20px 0 0 20px;
-            }
-
-            .nav-links.active {
-                right: 0;
-            }
-
-            .mobile-toggle {
-                display: block;
-            }
-
-            .hero-text h1 {
-                font-size: 2.4rem;
-            }
-
-            .service-card:hover {
-                transform: translateY(-15px);
-            }
-
-            .booking-form-container {
-                padding: 30px 20px;
-            }
-
             section {
                 padding: 60px 0;
+            }
+            
+            nav ul {
+                position: fixed;
+                top: 70px;
+                left: 0;
+                width: 100%;
+                background-color: var(--white);
+                flex-direction: column;
+                padding: 20px;
+                box-shadow: var(--shadow);
+                transform: translateY(-100%);
+                opacity: 0;
+                visibility: hidden;
+                transition: var(--transition);
+                z-index: 999;
+            }
+            
+            nav ul.active {
+                transform: translateY(0);
+                opacity: 1;
+                visibility: visible;
+            }
+            
+            .mobile-menu-btn {
+                display: block;
+            }
+            
+            .service-card {
+                flex: 0 0 100%;
+            }
+            
+            .form-container {
+                padding: 30px;
             }
         }
 
         @media (max-width: 576px) {
-            .hero-text h1 {
-                font-size: 2rem;
+            h1 { font-size: 2rem; }
+            h2 { font-size: 1.8rem; }
+            
+            .hero {
+                padding: 140px 0 80px;
             }
             
-            .section-title h2 {
-                font-size: 2rem;
+            .hero-buttons {
+                flex-direction: column;
+                align-items: center;
             }
             
-            .btn {
-                padding: 14px 30px;
+            .floating-badge {
+                bottom: -10px;
+                right: -10px;
+                padding: 15px;
+            }
+            
+            .call-button {
+                bottom: 20px;
+                right: 20px;
+                width: 60px;
+                height: 60px;
             }
         }
     </style>
 </head>
 <body>
     <!-- Header & Navigation -->
-    <header id="header">
-        <div class="container">
-            <nav class="navbar">
-                <a href="#" class="logo"><i class="fas fa-tools"></i> xyz service</a>
-                <ul class="nav-links" id="navLinks">
+    <header>
+        <div class="container header-container">
+            <a href="#" class="logo">
+                <i class="fas fa-tools"></i>
+                <span>PrecisionFix</span>
+            </a>
+            
+            <div class="mobile-menu-btn" id="mobileMenuBtn">
+                <i class="fas fa-bars"></i>
+            </div>
+            
+            <nav>
+                <ul id="navMenu">
                     <li><a href="#home">Home</a></li>
                     <li><a href="#services">Services</a></li>
-                    <li><a href="#why-us">Why Choose Us</a></li>
-                    <li><a href="#booking">Book Service</a></li>
-                    <li><a href="#contact">Contact</a></li>
+                    <li><a href="#why-us">Why Us</a></li>
+                    <li><a href="#how-it-works">How It Works</a></li>
+                    <li><a href="#testimonials">Testimonials</a></li>
+                    <li><a href="#booking" class="btn btn-secondary">Book Now</a></li>
                 </ul>
-                <div class="mobile-toggle" id="mobileToggle">
-                    <i class="fas fa-bars"></i>
-                </div>
             </nav>
         </div>
     </header>
 
     <!-- Hero Section -->
-    <section id="home" class="hero">
+    <section class="hero" id="home">
         <div class="container">
+            <!-- Auto-sliding text banner -->
+            <div class="sliding-banner">
+                <div class="banner-track">
+                    <div class="banner-item">
+                        <i class="fas fa-bolt"></i>
+                        <span>Same-Day AC Repair Service</span>
+                    </div>
+                    <div class="banner-item">
+                        <i class="fas fa-star"></i>
+                        <span>Certified & Experienced Technicians</span>
+                    </div>
+                    <div class="banner-item">
+                        <i class="fas fa-shield-alt"></i>
+                        <span>6-Month Warranty on All Repairs</span>
+                    </div>
+                    <div class="banner-item">
+                        <i class="fas fa-clock"></i>
+                        <span>24/7 Emergency Service Available</span>
+                    </div>
+                    <div class="banner-item">
+                        <i class="fas fa-bolt"></i>
+                        <span>Same-Day AC Repair Service</span>
+                    </div>
+                    <div class="banner-item">
+                        <i class="fas fa-star"></i>
+                        <span>Certified & Experienced Technicians</span>
+                    </div>
+                    <div class="banner-item">
+                        <i class="fas fa-shield-alt"></i>
+                        <span>6-Month Warranty on All Repairs</span>
+                    </div>
+                    <div class="banner-item">
+                        <i class="fas fa-clock"></i>
+                        <span>24/7 Emergency Service Available</span>
+                    </div>
+                </div>
+            </div>
+            
             <div class="hero-content">
                 <div class="hero-text">
-                    <h1>Expert Appliance Repair When You Need It Most</h1>
-                    <p>Fast, reliable, and professional repair services for all major home appliances. Our certified technicians bring the workshop to your doorstep with same-day service available.</p>
-                    <a href="#booking" class="btn btn-primary">Book a Repair Now</a>
+                    <h1>Expert Appliance Repair You Can Trust</h1>
+                    <p>PrecisionFix provides premium repair services for AC, Washing Machines, and Refrigerators with certified technicians, same-day service, and a 6-month warranty on all repairs.</p>
+                    <div class="hero-buttons">
+                        <a href="#booking" class="btn">Book Service Now</a>
+                        <a href="#services" class="btn btn-secondary">Our Services</a>
+                    </div>
                 </div>
-                <div class="hero-visual">
-                    <div class="appliance-3d">
-                        <div class="front"><i class="fas fa-snowflake"></i></div>
-                        <div class="back"><i class="fas fa-washing-machine"></i></div>
-                        <div class="right"></div>
-                        <div class="left"></div>
-                        <div class="top"></div>
-                        <div class="bottom"></div>
+                <div class="hero-image">
+                    <img src="https://images.unsplash.com/photo-1558618666-fcd25c85cd64?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Appliance Repair Technician">
+                    <div class="floating-badge">
+                        <i class="fas fa-phone-alt"></i>
+                        <div>Call Now</div>
+                        <strong>1-800-REPAIR</strong>
                     </div>
                 </div>
             </div>
@@ -683,344 +923,646 @@
     </section>
 
     <!-- Services Section -->
-    <section id="services">
+    <section class="services" id="services">
         <div class="container">
-            <div class="section-title">
-                <h2>Our Premium Services</h2>
-                <p>We specialize in fixing all major home appliances with precision and care, backed by a 1-year warranty on all repairs.</p>
-            </div>
+            <h2>Our Premium Services</h2>
             <div class="services-container">
-                <div class="service-card">
-                    <div class="service-icon">
-                        <i class="fas fa-washing-machine"></i>
+                <div class="carousel-track" id="servicesCarousel">
+                    <div class="service-card">
+                        <div class="service-icon">
+                            <i class="fas fa-snowflake"></i>
+                        </div>
+                        <h3>AC Repair & Service</h3>
+                        <p>Professional air conditioner repair, maintenance, and installation services for all brands and models.</p>
+                        <ul style="text-align: left; color: var(--text-light); margin-top: 15px;">
+                            <li>AC Gas Refilling</li>
+                            <li>Compressor Repair</li>
+                            <li>Annual Maintenance</li>
+                            <li>Installation & Uninstallation</li>
+                        </ul>
                     </div>
-                    <h3>Washing Machine Repair</h3>
-                    <p>Comprehensive diagnostics and repair for all washer and dryer models, front-load and top-load.</p>
-                    <div class="service-price">From ₹89</div>
+                    
+                    <div class="service-card">
+                        <div class="service-icon">
+                            <i class="fas fa-soap"></i>
+                        </div>
+                        <h3>Washing Machine Repair</h3>
+                        <p>Comprehensive washing machine repair services for front-load, top-load, and semi-automatic machines.</p>
+                        <ul style="text-align: left; color: var(--text-light); margin-top: 15px;">
+                            <li>Motor & Drum Repair</li>
+                            <li>Water Leakage Fix</li>
+                            <li>Control Panel Issues</li>
+                            <li>Spare Parts Replacement</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="service-card">
+                        <div class="service-icon">
+                            <i class="fas fa-thermometer-half"></i>
+                        </div>
+                        <h3>Refrigerator Repair</h3>
+                        <p>Expert refrigerator repair services including cooling issues, compressor problems, and more.</p>
+                        <ul style="text-align: left; color: var(--text-light); margin-top: 15px;">
+                            <li>Cooling Problem Fix</li>
+                            <li>Compressor Repair</li>
+                            <li>Gas Charging</li>
+                            <li>Door Seal Replacement</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="service-card">
+                        <div class="service-icon">
+                            <i class="fas fa-tools"></i>
+                        </div>
+                        <h3>Preventive Maintenance</h3>
+                        <p>Regular maintenance plans to keep your appliances running efficiently and extend their lifespan.</p>
+                        <ul style="text-align: left; color: var(--text-light); margin-top: 15px;">
+                            <li>Annual Maintenance Contracts</li>
+                            <li>Performance Check-ups</li>
+                            <li>Cleaning & Servicing</li>
+                            <li>Efficiency Optimization</li>
+                        </ul>
+                    </div>
                 </div>
-                <div class="service-card">
-                    <div class="service-icon">
-                        <i class="fas fa-temperature-low"></i>
-                    </div>
-                    <h3>Refrigerator & Freezer</h3>
-                    <p>Fix cooling issues, leakages, ice maker problems, and compressor failures to keep your food fresh.</p>
-                    <div class="service-price">From ₹99</div>
-                </div>
-                <div class="service-card">
-                    <div class="service-icon">
-                        <i class="fas fa-wind"></i>
-                    </div>
-                    <h3>AC & HVAC Services</h3>
-                    <p>Installation, maintenance, and repair of air conditioning systems for optimal home comfort.</p>
-                    <div class="service-price">From ₹109</div>
+                
+                <div class="carousel-nav">
+                    <div class="carousel-dot active" data-index="0"></div>
+                    <div class="carousel-dot" data-index="1"></div>
+                    <div class="carousel-dot" data-index="2"></div>
                 </div>
             </div>
         </div>
     </section>
 
     <!-- Why Choose Us Section -->
-    <section id="why-us" class="why-us">
+    <section id="why-us">
         <div class="container">
-            <div class="section-title">
-                <h2>Why Choose xyz service</h2>
-                <p>We go beyond quick fixes to deliver lasting solutions with an unmatched customer experience.</p>
-            </div>
-            <div class="features-grid">
-                <div class="feature">
-                    <i class="fas fa-clock"></i>
-                    <h3>Same-Day Service</h3>
-                    <p>Most repairs completed within 24 hours of your call. We value your time as much as you do.</p>
-                </div>
-                <div class="feature">
+            <h2>Why Choose PrecisionFix</h2>
+            <div class="features">
+                <div class="feature fade-in">
                     <i class="fas fa-user-shield"></i>
                     <h3>Certified Technicians</h3>
-                    <p>Our experts are licensed, background-checked, and trained on the latest appliance technology.</p>
+                    <p>All our technicians are certified, background-checked, and have 5+ years of experience.</p>
                 </div>
-                <div class="feature">
-                    <i class="fas fa-award"></i>
-                    <h3>1-Year Warranty</h3>
-                    <p>All repairs come with a full 12-month warranty on parts and labor for your peace of mind.</p>
+                <div class="feature fade-in">
+                    <i class="fas fa-clock"></i>
+                    <h3>Same-Day Service</h3>
+                    <p>We offer same-day repair services with flexible scheduling options for your convenience.</p>
                 </div>
-                <div class="feature">
-                    <i class="fas fa-dollar-sign"></i>
+                <div class="feature fade-in">
+                    <i class="fas fa-shield-alt"></i>
+                    <h3>6-Month Warranty</h3>
+                    <p>All repairs come with a 6-month warranty on both parts and labor for your peace of mind.</p>
+                </div>
+                <div class="feature fade-in">
+                    <i class="fas fa-tag"></i>
                     <h3>Transparent Pricing</h3>
-                    <p>No hidden fees. We provide upfront quotes and only proceed with your approval.</p>
+                    <p>No hidden charges. We provide upfront pricing before starting any repair work.</p>
+                </div>
+                <div class="feature fade-in">
+                    <i class="fas fa-home"></i>
+                    <h3>At-Home Service</h3>
+                    <p>We repair appliances at your home or office, saving you time and transportation hassle.</p>
+                </div>
+                <div class="feature fade-in">
+                    <i class="fas fa-headset"></i>
+                    <h3>24/7 Support</h3>
+                    <p>Our customer support team is available round the clock for emergencies and queries.</p>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Booking Form Section -->
+    <!-- How It Works Section -->
+    <section class="how-it-works" id="how-it-works" style="background-color: var(--light-gray);">
+        <div class="container">
+            <h2>How Our Service Works</h2>
+            <div class="steps-container">
+                <div class="step fade-in">
+                    <div class="step-number">1</div>
+                    <h3>Book a Service</h3>
+                    <p>Use our online form or call us to schedule an appointment at your preferred time.</p>
+                </div>
+                <div class="step fade-in">
+                    <div class="step-number">2</div>
+                    <h3>Technician Visit</h3>
+                    <p>Our certified technician arrives on time, diagnoses the issue, and provides a transparent quote.</p>
+                </div>
+                <div class="step fade-in">
+                    <div class="step-number">3</div>
+                    <h3>Expert Repair</h3>
+                    <p>We perform the repair using genuine parts and advanced tools with precision and care.</p>
+                </div>
+                <div class="step fade-in">
+                    <div class="step-number">4</div>
+                    <h3>Quality Assurance</h3>
+                    <p>We test the appliance thoroughly and provide a 6-month warranty on the repair.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials Section -->
+    <section class="testimonials" id="testimonials">
+        <div class="container">
+            <h2>What Our Customers Say</h2>
+            <div class="testimonials-container">
+                <div class="testimonial-track" id="testimonialsCarousel">
+                    <div class="testimonial">
+                        <div class="testimonial-content">
+                            "PrecisionFix saved me during a heatwave when my AC stopped working. Their technician arrived within 2 hours, diagnosed the issue quickly, and repaired it at a reasonable price. Highly recommended!"
+                        </div>
+                        <div class="client-info">
+                            <div class="client-avatar">SR</div>
+                            <div class="client-name">
+                                <h4>Sarah Johnson</h4>
+                                <p>AC Repair Customer</p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="testimonial">
+                        <div class="testimonial-content">
+                            "My washing machine was leaking and making strange noises. The technician from PrecisionFix was professional, knowledgeable, and fixed the issue in under an hour. The 6-month warranty gives me great peace of mind."
+                        </div>
+                        <div class="client-info">
+                            <div class="client-avatar">MR</div>
+                            <div class="client-name">
+                                <h4>Michael Rodriguez</h4>
+                                <p>Washing Machine Repair</p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="testimonial">
+                        <div class="testimonial-content">
+                            "Our refrigerator stopped cooling suddenly, and we were worried about losing all our food. PrecisionFix responded immediately, repaired the compressor, and saved us hundreds in food replacement costs. Excellent service!"
+                        </div>
+                        <div class="client-info">
+                            <div class="client-avatar">PK</div>
+                            <div class="client-name">
+                                <h4>Priya Kumar</h4>
+                                <p>Refrigerator Repair Customer</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="carousel-nav">
+                    <div class="carousel-dot active" data-index="0"></div>
+                    <div class="carousel-dot" data-index="1"></div>
+                    <div class="carousel-dot" data-index="2"></div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Booking/Contact Form -->
     <section id="booking">
         <div class="container">
-            <div class="section-title">
-                <h2>Book Your Service</h2>
-                <p>Fill out the form below and our team will contact you within 30 minutes to confirm your appointment.</p>
-            </div>
-            <div class="booking-form-container">
-                <form id="serviceForm">
+            <h2>Book a Service Appointment</h2>
+            <div class="form-container">
+                <form id="bookingForm">
                     <div class="form-row">
                         <div class="form-group">
                             <label for="name">Full Name *</label>
                             <input type="text" id="name" class="form-control" required>
-                            <div class="error-message" id="nameError">Please enter your full name.</div>
                         </div>
                         <div class="form-group">
                             <label for="phone">Phone Number *</label>
                             <input type="tel" id="phone" class="form-control" required>
-                            <div class="error-message" id="phoneError">Please enter a valid phone number.</div>
                         </div>
                     </div>
+                    
                     <div class="form-group">
                         <label for="email">Email Address *</label>
                         <input type="email" id="email" class="form-control" required>
-                        <div class="error-message" id="emailError">Please enter a valid email address.</div>
                     </div>
+                    
                     <div class="form-row">
                         <div class="form-group">
-                            <label for="appliance">Appliance Type *</label>
-                            <select id="appliance" class="form-control" required>
-                                <option value="" disabled selected>Select an appliance</option>
-                                <option value="washing-machine">Washing Machine</option>
-                                <option value="refrigerator">Refrigerator</option>
-                                <option value="ac">Air Conditioner</option>
-                                <option value="oven">Oven / Stove</option>
-                                <option value="dishwasher">Dishwasher</option>
+                            <label for="service">Service Needed *</label>
+                            <select id="service" class="form-control" required>
+                                <option value="">Select a service</option>
+                                <option value="ac">AC Repair</option>
+                                <option value="washing-machine">Washing Machine Repair</option>
+                                <option value="refrigerator">Refrigerator Repair</option>
+                                <option value="maintenance">Preventive Maintenance</option>
                                 <option value="other">Other Appliance</option>
                             </select>
-                            <div class="error-message" id="applianceError">Please select an appliance type.</div>
                         </div>
                         <div class="form-group">
                             <label for="date">Preferred Date *</label>
                             <input type="date" id="date" class="form-control" required>
-                            <div class="error-message" id="dateError">Please select a date.</div>
                         </div>
                     </div>
+                    
                     <div class="form-group">
-                        <label for="issue">Describe the Issue</label>
-                        <textarea id="issue" class="form-control" rows="4" placeholder="E.g., Not cooling, making strange noise, leaking water..."></textarea>
+                        <label for="address">Full Address *</label>
+                        <input type="text" id="address" class="form-control" required>
                     </div>
-                    <button type="submit" class="btn btn-primary" style="width: 100%; padding: 18px;">Schedule Repair</button>
+                    
+                    <div class="form-group">
+                        <label for="message">Issue Description</label>
+                        <textarea id="message" class="form-control" placeholder="Please describe the problem with your appliance..."></textarea>
+                    </div>
+                    
+                    <div class="form-message" id="formMessage"></div>
+                    
+                    <button type="submit" class="btn" style="width: 100%;">Book Service Appointment</button>
                 </form>
-                <div class="success-message" id="successMessage">
-                    <i class="fas fa-check-circle" style="font-size: 3rem; margin-bottom: 20px;"></i>
-                    <h3>Booking Request Received!</h3>
-                    <p>Thank you for choosing xyz service. Our team will contact you within 30 minutes to confirm your appointment details.</p>
-                </div>
             </div>
         </div>
     </section>
 
-    <!-- Contact Section -->
-    <section id="contact">
+    <!-- Sticky Call Button -->
+    <a href="tel:1800737247" class="call-button">
+        <i class="fas fa-phone-alt"></i>
+    </a>
+
+    <!-- Footer -->
+    <footer>
         <div class="container">
-            <div class="section-title">
-                <h2>Contact Us</h2>
-                <p>Get in touch with our friendly customer support team for any inquiries or emergency repairs.</p>
-            </div>
-            <div class="contact-grid">
-                <div class="contact-info">
-                    <h3>Our Contact Details</h3>
-                    <div class="contact-item">
-                        <i class="fas fa-map-marker-alt"></i>
-                        <div>
-                            <h4>Visit Our Workshop</h4>
-                            <p>123 Repair Street, Tech City, TC 10101</p>
-                        </div>
-                    </div>
-                    <div class="contact-item">
-                        <i class="fas fa-phone"></i>
-                        <div>
-                            <h4>Call Us Anytime</h4>
-                            <p>+1 (555) 123-4567</p>
-                            <p>Emergency: +1 (555) 987-6543</p>
-                        </div>
-                    </div>
-                    <div class="contact-item">
-                        <i class="fas fa-envelope"></i>
-                        <div>
-                            <h4>Email Us</h4>
-                            <p>support@xyz service.com</p>
-                            <p>quotes@xyz service.com</p>
-                        </div>
-                    </div>
-                </div>
-                <div>
-                    <h3>Business Hours</h3>
-                    <p style="margin-bottom: 30px;">We're here to serve you 7 days a week, with extended hours for emergencies.</p>
-                    <ul style="list-style: none;">
-                        <li style="padding: 12px 0; border-bottom: 1px solid #e2e8f0;"><strong>Monday - Friday:</strong> 7:00 AM - 9:00 PM</li>
-                        <li style="padding: 12px 0; border-bottom: 1px solid #e2e8f0;"><strong>Saturday:</strong> 8:00 AM - 8:00 PM</li>
-                        <li style="padding: 12px 0; border-bottom: 1px solid #e2e8f0;"><strong>Sunday:</strong> 9:00 AM - 6:00 PM</li>
-                        <li style="padding: 12px 0;"><strong>Emergency Service:</strong> 24/7 Available</li>
-                    </ul>
-                    <div class="social-icons">
+            <div class="footer-content">
+                <div class="footer-about">
+                    <a href="#" class="footer-logo">
+                        <i class="fas fa-tools"></i>
+                        PrecisionFix
+                    </a>
+                    <p>PrecisionFix is your trusted partner for premium appliance repair services. We specialize in AC, washing machine, and refrigerator repairs with certified technicians and a customer-first approach.</p>
+                    <div class="social-links">
                         <a href="#"><i class="fab fa-facebook-f"></i></a>
                         <a href="#"><i class="fab fa-twitter"></i></a>
                         <a href="#"><i class="fab fa-instagram"></i></a>
                         <a href="#"><i class="fab fa-linkedin-in"></i></a>
                     </div>
                 </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Footer -->
-    <footer>
-        <div class="container">
-            <div class="footer-content">
-                <div>
-                    <div class="footer-logo"><i class="fas fa-tools"></i> xyz service</div>
-                    <p>Providing premium, reliable appliance repair services with a commitment to quality and customer satisfaction since 2010.</p>
-                </div>
+                
                 <div class="footer-links">
                     <h4>Quick Links</h4>
                     <ul>
                         <li><a href="#home">Home</a></li>
                         <li><a href="#services">Services</a></li>
                         <li><a href="#why-us">Why Choose Us</a></li>
-                        <li><a href="#booking">Book Service</a></li>
-                        <li><a href="#contact">Contact</a></li>
+                        <li><a href="#how-it-works">How It Works</a></li>
+                        <li><a href="#testimonials">Testimonials</a></li>
+                        <li><a href="#booking">Book Now</a></li>
                     </ul>
                 </div>
-                <div class="footer-links">
-                    <h4>Our Services</h4>
-                    <ul>
-                        <li><a href="#">Washing Machine Repair</a></li>
-                        <li><a href="#">Refrigerator Repair</a></li>
-                        <li><a href="#">AC & HVAC Services</a></li>
-                        <li><a href="#">Oven & Stove Repair</a></li>
-                        <li><a href="#">Dishwasher Repair</a></li>
+                
+                <div class="footer-contact">
+                    <h4>Contact Us</h4>
+                    <ul class="contact-info">
+                        <li>
+                            <i class="fas fa-map-marker-alt"></i>
+                            <span>123 Repair Street, Tech City, TC 10101</span>
+                        </li>
+                        <li>
+                            <i class="fas fa-phone-alt"></i>
+                            <span>1-800-REPAIR (1-800-737-247)</span>
+                        </li>
+                        <li>
+                            <i class="fas fa-envelope"></i>
+                            <span>support@precisionfix.com</span>
+                        </li>
+                        <li>
+                            <i class="fas fa-clock"></i>
+                            <span>Mon-Sun: 7:00 AM - 10:00 PM<br>24/7 Emergency Service Available</span>
+                        </li>
                     </ul>
                 </div>
             </div>
-            <div class="copyright">
-                <p>&copy; 2023 xyz service Appliance Repair. All rights reserved. | Licensed, Bonded & Insured</p>
+            
+            <div class="footer-bottom">
+                <p>&copy; 2023 PrecisionFix Appliance Repair. All rights reserved. | <a href="#" style="color: #9ca3af;">Privacy Policy</a> | <a href="#" style="color: #9ca3af;">Terms of Service</a></p>
             </div>
         </div>
     </footer>
 
     <script>
+        // DOM Elements
+        const mobileMenuBtn = document.getElementById('mobileMenuBtn');
+        const navMenu = document.getElementById('navMenu');
+        const servicesCarousel = document.getElementById('servicesCarousel');
+        const testimonialsCarousel = document.getElementById('testimonialsCarousel');
+        const bookingForm = document.getElementById('bookingForm');
+        const formMessage = document.getElementById('formMessage');
+        const serviceDots = document.querySelectorAll('.services .carousel-dot');
+        const testimonialDots = document.querySelectorAll('.testimonials .carousel-dot');
+        const fadeInElements = document.querySelectorAll('.fade-in');
+        const callButton = document.querySelector('.call-button');
+        
+        // Auto-sliding text banner variables
+        const bannerTrack = document.querySelector('.banner-track');
+        let bannerAnimation;
+        
+        // Carousel variables
+        let currentServiceIndex = 0;
+        let currentTestimonialIndex = 0;
+        let serviceInterval, testimonialInterval;
+        const totalServices = 4; // Total service cards
+        const totalTestimonials = 3; // Total testimonials
+        
+        // Initialize on page load
         document.addEventListener('DOMContentLoaded', function() {
-            const mobileToggle = document.getElementById('mobileToggle');
-            const navLinks = document.getElementById('navLinks');
-
-            mobileToggle.addEventListener('click', function() {
-                navLinks.classList.toggle('active');
-                mobileToggle.innerHTML = navLinks.classList.contains('active') 
-                    ? '<i class="fas fa-times"></i>' 
-                    : '<i class="fas fa-bars"></i>';
+            initMobileMenu();
+            initAutoSlidingBanner();
+            initCarousels();
+            initScrollAnimations();
+            initSmoothScrolling();
+            initFormValidation();
+            updateServiceCarousel();
+            updateTestimonialCarousel();
+        });
+        
+        // Mobile Menu Toggle
+        function initMobileMenu() {
+            mobileMenuBtn.addEventListener('click', function() {
+                navMenu.classList.toggle('active');
+                const icon = mobileMenuBtn.querySelector('i');
+                icon.classList.toggle('fa-bars');
+                icon.classList.toggle('fa-times');
             });
-
-            document.querySelectorAll('.nav-links a').forEach(link => {
+            
+            // Close menu when clicking on a link
+            document.querySelectorAll('nav a').forEach(link => {
                 link.addEventListener('click', () => {
-                    navLinks.classList.remove('active');
-                    mobileToggle.innerHTML = '<i class="fas fa-bars"></i>';
+                    navMenu.classList.remove('active');
+                    mobileMenuBtn.querySelector('i').classList.add('fa-bars');
+                    mobileMenuBtn.querySelector('i').classList.remove('fa-times');
                 });
             });
-
-            const header = document.getElementById('header');
-            window.addEventListener('scroll', function() {
-                if (window.scrollY > 100) {
-                    header.classList.add('scrolled');
-                } else {
-                    header.classList.remove('scrolled');
+        }
+        
+        // Auto-sliding text banner
+        function initAutoSlidingBanner() {
+            // Clone banner items for seamless loop
+            const bannerItems = document.querySelectorAll('.banner-item');
+            bannerItems.forEach(item => {
+                const clone = item.cloneNode(true);
+                bannerTrack.appendChild(clone);
+            });
+            
+            // Pause animation on hover
+            const slidingBanner = document.querySelector('.sliding-banner');
+            slidingBanner.addEventListener('mouseenter', () => {
+                bannerTrack.style.animationPlayState = 'paused';
+            });
+            
+            slidingBanner.addEventListener('mouseleave', () => {
+                bannerTrack.style.animationPlayState = 'running';
+            });
+        }
+        
+        // Initialize carousels
+        function initCarousels() {
+            // Services carousel
+            startServiceCarousel();
+            
+            // Pause on hover for services carousel
+            const servicesContainer = document.querySelector('.services-container');
+            servicesContainer.addEventListener('mouseenter', pauseServiceCarousel);
+            servicesContainer.addEventListener('mouseleave', startServiceCarousel);
+            
+            // Testimonials carousel
+            startTestimonialCarousel();
+            
+            // Pause on hover for testimonials carousel
+            const testimonialsContainer = document.querySelector('.testimonials-container');
+            testimonialsContainer.addEventListener('mouseenter', pauseTestimonialCarousel);
+            testimonialsContainer.addEventListener('mouseleave', startTestimonialCarousel);
+            
+            // Dot click handlers for services
+            serviceDots.forEach(dot => {
+                dot.addEventListener('click', function() {
+                    currentServiceIndex = parseInt(this.getAttribute('data-index'));
+                    updateServiceCarousel();
+                    resetServiceCarouselInterval();
+                });
+            });
+            
+            // Dot click handlers for testimonials
+            testimonialDots.forEach(dot => {
+                dot.addEventListener('click', function() {
+                    currentTestimonialIndex = parseInt(this.getAttribute('data-index'));
+                    updateTestimonialCarousel();
+                    resetTestimonialCarouselInterval();
+                });
+            });
+        }
+        
+        // Services Carousel Functions
+        function startServiceCarousel() {
+            serviceInterval = setInterval(() => {
+                currentServiceIndex = (currentServiceIndex + 1) % 3; // Only 3 sets visible at a time
+                updateServiceCarousel();
+            }, 4000);
+        }
+        
+        function pauseServiceCarousel() {
+            clearInterval(serviceInterval);
+        }
+        
+        function resetServiceCarouselInterval() {
+            pauseServiceCarousel();
+            startServiceCarousel();
+        }
+        
+        function updateServiceCarousel() {
+            const cardWidth = document.querySelector('.service-card').offsetWidth + 30; // Including gap
+            servicesCarousel.style.transform = `translateX(-${currentServiceIndex * cardWidth}px)`;
+            
+            // Update active dot
+            serviceDots.forEach((dot, index) => {
+                dot.classList.toggle('active', index === currentServiceIndex);
+            });
+        }
+        
+        // Testimonials Carousel Functions
+        function startTestimonialCarousel() {
+            testimonialInterval = setInterval(() => {
+                currentTestimonialIndex = (currentTestimonialIndex + 1) % totalTestimonials;
+                updateTestimonialCarousel();
+            }, 5000);
+        }
+        
+        function pauseTestimonialCarousel() {
+            clearInterval(testimonialInterval);
+        }
+        
+        function resetTestimonialCarouselInterval() {
+            pauseTestimonialCarousel();
+            startTestimonialCarousel();
+        }
+        
+        function updateTestimonialCarousel() {
+            testimonialsCarousel.style.transform = `translateX(-${currentTestimonialIndex * 100}%)`;
+            
+            // Update active dot
+            testimonialDots.forEach((dot, index) => {
+                dot.classList.toggle('active', index === currentTestimonialIndex);
+            });
+        }
+        
+        // Scroll Animations for Fade-in Elements
+        function initScrollAnimations() {
+            // Initial check on load
+            checkFadeIn();
+            
+            // Check on scroll
+            window.addEventListener('scroll', checkFadeIn);
+        }
+        
+        function checkFadeIn() {
+            const windowHeight = window.innerHeight;
+            const windowTop = window.scrollY;
+            const windowBottom = windowTop + windowHeight;
+            
+            fadeInElements.forEach(element => {
+                const elementTop = element.offsetTop;
+                const elementBottom = elementTop + element.offsetHeight;
+                
+                // Check if element is in viewport
+                if (elementBottom >= windowTop && elementTop <= windowBottom) {
+                    element.classList.add('visible');
                 }
             });
-
-            const serviceForm = document.getElementById('serviceForm');
-            const successMessage = document.getElementById('successMessage');
-
-            document.querySelectorAll('.form-control').forEach(input => {
-                input.addEventListener('input', function() {
-                    const errorElement = document.getElementById(this.id + 'Error');
-                    if (errorElement) {
-                        errorElement.style.display = 'none';
-                        this.style.borderColor = '#e2e8f0';
+        }
+        
+        // Smooth Scrolling for Navigation Links
+        function initSmoothScrolling() {
+            document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+                anchor.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    
+                    const targetId = this.getAttribute('href');
+                    if (targetId === '#') return;
+                    
+                    const targetElement = document.querySelector(targetId);
+                    if (targetElement) {
+                        window.scrollTo({
+                            top: targetElement.offsetTop - 80,
+                            behavior: 'smooth'
+                        });
                     }
                 });
             });
-
-            serviceForm.addEventListener('submit', function(e) {
+        }
+        
+        // Form Validation
+        function initFormValidation() {
+            bookingForm.addEventListener('submit', function(e) {
                 e.preventDefault();
+                
+                // Get form values
+                const name = document.getElementById('name').value.trim();
+                const phone = document.getElementById('phone').value.trim();
+                const email = document.getElementById('email').value.trim();
+                const service = document.getElementById('service').value;
+                const date = document.getElementById('date').value;
+                const address = document.getElementById('address').value.trim();
+                
+                // Validation flags
                 let isValid = true;
-
-                const name = document.getElementById('name');
-                if (!name.value.trim()) {
-                    document.getElementById('nameError').style.display = 'block';
-                    name.style.borderColor = '#ef4444';
+                let errorMessage = '';
+                
+                // Name validation
+                if (name === '') {
                     isValid = false;
+                    errorMessage = 'Please enter your full name.';
                 }
-
-                const phone = document.getElementById('phone');
-                const phoneRegex = /^[\+]?[1-9][\d]{0,15}₹/;
-                if (!phoneRegex.test(phone.value.replace(/[\s\-\(\)]/g, ''))) {
-                    document.getElementById('phoneError').style.display = 'block';
-                    phone.style.borderColor = '#ef4444';
+                
+                // Phone validation
+                else if (phone === '' || !/^[\d\s\-\+\(\)]{10,}$/.test(phone)) {
                     isValid = false;
+                    errorMessage = 'Please enter a valid phone number.';
                 }
-
-                const email = document.getElementById('email');
-                const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+₹/;
-                if (!emailRegex.test(email.value)) {
-                    document.getElementById('emailError').style.display = 'block';
-                    email.style.borderColor = '#ef4444';
+                
+                // Email validation
+                else if (email === '' || !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
                     isValid = false;
+                    errorMessage = 'Please enter a valid email address.';
                 }
-
-                const appliance = document.getElementById('appliance');
-                if (!appliance.value) {
-                    document.getElementById('applianceError').style.display = 'block';
-                    appliance.style.borderColor = '#ef4444';
+                
+                // Service validation
+                else if (service === '') {
                     isValid = false;
+                    errorMessage = 'Please select a service.';
                 }
-
-                const date = document.getElementById('date');
-                if (!date.value) {
-                    document.getElementById('dateError').style.display = 'block';
-                    date.style.borderColor = '#ef4444';
+                
+                // Date validation
+                else if (date === '') {
                     isValid = false;
+                    errorMessage = 'Please select a preferred date.';
                 }
-
-                if (isValid) {
-                    serviceForm.style.display = 'none';
-                    successMessage.style.display = 'block';
+                
+                // Address validation
+                else if (address === '') {
+                    isValid = false;
+                    errorMessage = 'Please enter your address.';
+                }
+                
+                // Show message
+                if (!isValid) {
+                    formMessage.textContent = errorMessage;
+                    formMessage.className = 'form-message error';
+                    formMessage.style.display = 'block';
                     
-                    successMessage.scrollIntoView({ behavior: 'smooth', block: 'center' });
-                    
+                    // Hide message after 5 seconds
                     setTimeout(() => {
-                        serviceForm.reset();
-                        serviceForm.style.display = 'block';
-                        successMessage.style.display = 'none';
+                        formMessage.style.display = 'none';
                     }, 5000);
+                } else {
+                    // Form is valid - show success message
+                    formMessage.innerHTML = `
+                        <i class="fas fa-check-circle" style="margin-right: 10px;"></i>
+                        <strong>Thank you, ${name}!</strong> Your appointment has been booked successfully. 
+                        Our representative will call you at ${phone} within 30 minutes to confirm.
+                    `;
+                    formMessage.className = 'form-message success';
+                    formMessage.style.display = 'block';
+                    
+                    // Reset form
+                    bookingForm.reset();
+                    
+                    // Scroll to form message
+                    formMessage.scrollIntoView({ behavior: 'smooth', block: 'center' });
+                    
+                    // Hide message after 8 seconds
+                    setTimeout(() => {
+                        formMessage.style.display = 'none';
+                    }, 8000);
                 }
             });
-
-            window.addEventListener('scroll', function() {
-                const scrolled = window.pageYOffset;
-                const hero = document.querySelector('.hero');
-                if (hero) {
-                    hero.style.backgroundPositionY = scrolled * 0.5 + 'px';
-                }
-
-                const features = document.querySelectorAll('.feature');
-                features.forEach(feature => {
-                    const featureTop = feature.getBoundingClientRect().top;
-                    const windowHeight = window.innerHeight;
-                    if (featureTop < windowHeight * 0.85) {
-                        feature.style.opacity = '1';
-                        feature.style.transform = 'translateY(0)';
-                    }
-                });
-            });
-
-            document.querySelectorAll('.feature').forEach(feature => {
-                feature.style.opacity = '0';
-                feature.style.transform = 'translateY(30px)';
-                feature.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
-            });
-
-            window.dispatchEvent(new Event('scroll'));
+            
+            // Set min date to today for date picker
+            const dateInput = document.getElementById('date');
+            const today = new Date().toISOString().split('T')[0];
+            dateInput.min = today;
+            
+            // Set a default date (tomorrow)
+            const tomorrow = new Date();
+            tomorrow.setDate(tomorrow.getDate() + 1);
+            dateInput.value = tomorrow.toISOString().split('T')[0];
+        }
+        
+        // Make call button sticky and click-to-call
+        window.addEventListener('scroll', function() {
+            const header = document.querySelector('header');
+            const headerHeight = header.offsetHeight;
+            
+            if (window.scrollY > headerHeight) {
+                callButton.style.bottom = '30px';
+            } else {
+                callButton.style.bottom = '-100px';
+            }
+        });
+        
+        // Handle responsive behavior on window resize
+        window.addEventListener('resize', function() {
+            updateServiceCarousel();
+            updateTestimonialCarousel();
+            checkFadeIn();
         });
     </script>
 </body>
